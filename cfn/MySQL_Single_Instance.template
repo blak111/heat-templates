@@ -13,7 +13,7 @@
     "InstanceType" : {
       "Description" : "Database server EC2 instance type",
       "Type" : "String",
-      "AllowedValues" : [ "m1.tiny", "m1.small", "m1.medium", "m1.large", "m1.xlarge" ],
+      "AllowedValues" : [ "t1.micro", "m1.tiny", "m1.small", "m1.medium", "m1.large", "m1.xlarge" ],
       "ConstraintDescription" : "must be a valid EC2 instance type."
     },
 
@@ -65,6 +65,7 @@
 
   "Mappings" : {
     "AWSInstanceType2Arch" : {
+      "t1.micro"    : { "Arch" : "64" },
       "m1.tiny"    : { "Arch" : "32" },
       "m1.small"    : { "Arch" : "64" },
       "m1.medium"    : { "Arch" : "64" },
