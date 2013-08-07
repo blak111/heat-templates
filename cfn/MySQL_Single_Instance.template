@@ -61,9 +61,9 @@
       "AllowedValues" : [ "F18", "F17", "U10", "RHEL-6.1", "RHEL-6.2", "RHEL-6.3" ],
       "Default": "F17"
     },
-    "NetworkInterfaces": {
-      "Description" : "Network Interfaces to attach to the server",
-      "Type": "CommaDelimitedList"
+    "NetworkInterface": {
+      "Description" : "Network Interface to attach to the server",
+      "Type": "String"
     }
   },
 
@@ -109,7 +109,7 @@
       "Properties": {
         "ImageId" : { "Fn::FindInMap" : [ "DistroArch2AMI", { "Ref" : "LinuxDistribution" },
                           { "Fn::FindInMap" : [ "AWSInstanceType2Arch", { "Ref" : "InstanceType" }, "Arch" ] } ] },
-        "NetworkInterfaces": { "Ref" : "NetworkInterfaces" },
+        "NetworkInterfaces": [{ "Ref" : "NetworkInterface" }],
         "InstanceType"   : { "Ref" : "InstanceType" },
         "KeyName"        : { "Ref" : "KeyName" },
         "UserData"       : { "Fn::Base64" : { "Fn::Join" : ["", [
